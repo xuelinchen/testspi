@@ -1,0 +1,38 @@
+#
+# Author: chenxuelin@emicnet.com
+#
+# spi unit test common functions
+# default value
+
+shunit_dir="/home/cxl/git/shell/shunit2/source/2.1/src"
+baselib_dir="/home/cxl/git/shell/shell-baselib"
+if [ -z $shunit_dir ]; then echo "empty dir";exit 2; fi
+if [ ! -d $shunit_dir ]; then echo "not has dir ${shunit_dir}"; exit 2; fi
+if [ ! -d $baselib_dir ]; then echo "not has dir ${baselib_dir}"; exit 2; fi
+. testparam
+. ${baselib_dir}/cxl_log
+. ${baselib_dir}/cxl_utils
+. ${baselib_dir}/cxl_command
+current_dir=`pwd`         # 当前目录
+
+oneTimeSetUp(){
+	pretty_title "初始化加载必要文件"
+	init
+}
+
+oneTimeTearDown(){
+	clear
+	echo 
+	print_log "----------------------"
+	print_log "测试报告$CALLER" info
+	print_log "----------------------"
+	print_log "测试用例总数 :: ${__shunit_testsTotal}" info
+	print_log "通过用例数 :: ${__shunit_testsPassed}" success
+	print_log "失败用例数 :: ${__shunit_testsFailed}"  error
+	print_log "总功能点 :: ${__shunit_assertsTotal}" info
+	print_log "通过功能点 :: ${__shunit_assertsPassed}" success
+	print_log "失败功能点 :: ${__shunit_assertsFailed}" error
+	print_log "跳过功能点 :: ${__shunit_assertsSkipped}"  info
+	print_log  "---------------------"
+	echo 
+}

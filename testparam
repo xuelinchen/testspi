@@ -1,0 +1,16 @@
+#
+# Author: chenxuelin@emicnet.com
+#
+# spi 测试参数，可手动编辑
+
+# spi 访问uri
+#spi_uri="https://47.93.176.14:1066"
+spi_uri="https://10.0.0.42:1066"
+# 测试过程中使用的cookie文件名
+cookie_file="cxl_cookie"
+# log文件名
+cxl_log_file="testresult.log"
+
+# 登录用户名
+spi_login_account="spiadmin"
+spi_login_pwd="admin"
