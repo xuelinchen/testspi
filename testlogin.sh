@@ -42,6 +42,8 @@ testlogin(){
 	resultcheck=`echo "$result" | jq ".status"`
 	assertNotEquals "不是合法的json文件" "null" "$resultcheck"
 	assertEquals "返回status非0，接口失败" 0 "$resultcheck"
+	# 获取access_token
+	#curl -k -b emic_cookie -H "ClientID:5b8aa1ad923981c13424cf1655380d07" -H "ClientSecret:d1e7dd034ef0e6a73e5c299b7951c648" -d "access_token=c5f36b65bcfebce7106650ddb31dab08&oldaccount=spiauth&oldpassword=admin&newpassword=haha" https://10.0.0.42:1066/auth/api/updateAccount
 }
 
 clear(){ :; } 
